@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DevConf — Optimized Demo</title>
+  <meta name="description" content="Optimized, accessible DevConf demo using semantic HTML and OOCSS.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-row">
+      <a class="brand" href="#" aria-label="DevConf home">DevConf</a>
+      <nav class="main-nav" role="navigation" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle navigation">
+          <span class="icon">☰</span>
+        </button>
+        <ul id="primary-menu" class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#speakers">Speakers</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main" role="main">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <h1 id="hero-title">DevConf — Build, Ship, Learn</h1>
+        <p class="lead">A performant, accessible conference portfolio demo using semantic HTML and modern CSS.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#register">Register</a>
+          <button class="btn ghost" aria-label="View schedule">View schedule</button>
+        </div>
+      </div>
+      <figure class="hero-figure" aria-hidden="false">
+        <img src="images/placeholder.jpg" alt="Audience at a tech conference listening to a speaker" class="img-responsive">
+      </figure>
+    </section>
+
+    <section id="about" class="container" aria-labelledby="about-title">
+      <h2 id="about-title">About the Conference</h2>
+      <p>The conference focuses on web performance, accessibility and scalable front-end architecture.</p>
+      <div class="grid grid-3">
+        <article class="card" aria-labelledby="card-1-title">
+          <h3 id="card-1-title">Performance</h3>
+          <p>Learn how to optimize rendering and network performance.</p>
+        </article>
+        <article class="card" aria-labelledby="card-2-title">
+          <h3 id="card-2-title">Accessibility</h3>
+          <p>Practical accessibility techniques for real-world apps.</p>
+        </article>
+        <article class="card" aria-labelledby="card-3-title">
+          <h3 id="card-3-title">Architecture</h3>
+          <p>OOCSS and scalable CSS architecture patterns.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="speakers" class="container" aria-labelledby="speakers-title">
+      <h2 id="speakers-title">Speakers</h2>
+      <ul class="speaker-list">
+        <li class="speaker">
+          <img src="images/speaker1.jpg" alt="Portrait of Mira Patel, keynote speaker">
+          <h3>Mira Patel</h3>
+          <p>Web performance engineer</p>
+        </li>
+        <li class="speaker">
+          <img src="images/speaker2.jpg" alt="Portrait of John Doe, accessibility expert">
+          <h3>John Doe</h3>
+          <p>Accessibility advocate</p>
+        </li>
+      </ul>
+    </section>
+
+    <aside class="container aside" aria-labelledby="updates-title">
+      <h2 id="updates-title">Updates</h2>
+      <p class="small">Sticky elements are tested across viewports and avoid layout thrashing.</p>
+    </aside>
+
+    <section id="schedule" class="container" aria-labelledby="schedule-title">
+      <h2 id="schedule-title">Schedule</h2>
+      <div class="schedule-grid">
+        <div class="time">09:00</div>
+        <div class="event">Opening keynote</div>
+        <div class="time">10:00</div>
+        <div class="event">Performance workshop</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-row">
+      <p>&copy; 2026 DevConf — All rights reserved.</p>
+      <nav aria-label="Footer">
+        <ul class="footer-list">
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="#terms">Terms</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var btn = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('primary-menu');
+      if(!btn || !menu) return;
+      menu.hidden = true;
+      btn.addEventListener('click', function(){
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        menu.hidden = expanded;
+      });
+    })();
+  </script>
+</body>
+</html>
